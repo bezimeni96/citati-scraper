@@ -3,7 +3,7 @@ name: Scrape Latest Quotes
 on:
   # Okidač 1: Pokreni po rasporedu (svakog sata)
   schedule:
-    - cron: "0 * * * *" # '0 * * * *' znači u nultom minutu svakog sata
+    - cron: "*/5 * * * *" # '0 * * * *' znači u nultom minutu svakog sata
   # Okidač 2: Pokreni i na svaki push na 'main' granu (korisno za testiranje)
   push:
     branches:
