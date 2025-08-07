@@ -3,7 +3,7 @@ name: Scrape Latest Quotes
 on:
   # Okidač 1: Pokreni po rasporedu (svakog sata)
   schedule:
-    - cron: '0 * * * *' # '0 * * * *' znači u nultom minutu svakog sata
+    - cron: "0 * * * *" # '0 * * * *' znači u nultom minutu svakog sata
   # Okidač 2: Pokreni i na svaki push na 'main' granu (korisno za testiranje)
   push:
     branches:
@@ -13,6 +13,8 @@ on:
 
 jobs:
   scrape:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       # Korak 1: Preuzmi kod iz repozitorijuma
@@ -23,7 +25,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
       # Korak 3: Instaliraj zavisnosti iz requirements.txt
       - name: Install dependencies
