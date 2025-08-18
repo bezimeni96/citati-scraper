@@ -1,13 +1,19 @@
 name: Scrape Latest Quotes
 
 on:
-  # Okidač 1: Pokreni po rasporedu (svakog sata)
-  # schedule:
-  #   - cron: "*/5 * * * *" # '0 * * * *' znači u nultom minutu svakog sata
-  # # Okidač 2: Pokreni i na svaki push na 'main' granu (korisno za testiranje)
+  # Okidač 1: Pokreni po rasporedu (svaki dan u 10h i 20h)
+  # Važna napomena: Vreme je u UTC formatu.
+  # 08:00 UTC = 10:00 po našem letnjem vremenu (CEST)
+  # 18:00 UTC = 20:00 po našem letnjem vremenu (CEST)
+  schedule:
+    - cron: "0 8 * * *"
+    - cron: "0 18 * * *"
+    
+  # Okidač 2: Pokreni i na svaki push na 'main' granu (korisno za testiranje)
   push:
     branches:
       - main
+      
   # Okidač 3: Dozvoli ručno pokretanje
   workflow_dispatch:
 
